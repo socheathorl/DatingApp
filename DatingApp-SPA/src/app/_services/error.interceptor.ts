@@ -12,7 +12,7 @@ export class ErrorInterceptor implements HttpInterceptor{
     ): Observable<HttpEvent<any>>{
         return next.handle(req).pipe(
             catchError((error: HttpErrorResponse) => {
-                if(error.status === 400){
+                if(error.status === 401){
                     return throwError(error.statusText);
                 }
 
